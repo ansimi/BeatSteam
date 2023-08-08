@@ -6,10 +6,10 @@ using System.Xml;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("API/[controller]")] // /API/Test
-    public class TestController : ControllerBase
+    [Route("API/[controller]")] // /API/Profile
+    public class TestProfileController : ControllerBase
     {
-        /*[HttpGet]
+        [HttpGet]
         public IEnumerable<SteamProfile> TestGet() 
         {
             RecentlyPlayed rp = new RecentlyPlayed();
@@ -24,17 +24,6 @@ namespace API.Controllers
             sp.RecentlyPlayedGames.Add(rp);
 
             return new List<SteamProfile> { sp };
-        }*/
-
-        [HttpGet]
-        public async Task<string> TestSteamId()
-        {
-            GetSteamIdFromSteamName getSteamIdFromSteamName = new GetSteamIdFromSteamName();
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc = await getSteamIdFromSteamName.GetSteamProfileInfoXml("ansimi");
-            string steamId = getSteamIdFromSteamName.GetSteamId(xmlDoc);
-
-            return steamId;
         }
     }
 }

@@ -9,16 +9,16 @@ import { SteamService } from './services/steam.service';
 export class AppComponent {
   title = 'BeatSteam';
   appNews: any;
+  steamProfile: any;
 
   constructor(private steamService: SteamService) { }
 
   //getNewsForApp() {
   ngOnInit(): void {
-    this.steamService.getNewsForApp('1687950', 3, 300).subscribe({
-      next: response => this.appNews = response,
-      error: error => console.log(error),
-      complete : () => console.log(this.appNews)
-    })
+      this.steamService.getPlayerProfile('ansimi').subscribe({
+        next: response => this.steamProfile = response,
+        error: error => console.log(error),
+        complete: () => console.log(this.steamProfile)
+      });
+    }
   }
-
-}

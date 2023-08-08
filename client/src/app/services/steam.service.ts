@@ -26,4 +26,11 @@ export class SteamService {
     return this.http.get('https://localhost:5001/API/Test');
   }
 
+  getPlayerProfile(steamUser: string) {
+    let params = new HttpParams();
+    params = params.append('username', steamUser);
+
+    return this.http.get('https://localhost:5001/API/SteamProfile', {params: params});
+  }
+
 }
