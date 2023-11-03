@@ -5,32 +5,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SteamService {
-  baseUrl: string = 'http://api.steampowered.com/';
-  news: string = 'ISteamNews/GetNewsForApp/v0002/';
-  user: string = 'ISteamUser/';
-  userstats: string = 'ISteamUserStats/';
-  playerservice: string = 'IPlayerService/';
-
-  format: string = 'json';
 
   constructor(private http: HttpClient) { }
 
-  getNewsForApp(appId: string, count: number, maxLength: number) {
+  getPlayerProfileFromSteamName(steamUsername: string) {
     let params = new HttpParams();
-    params = params.append('appid', appId);
-    params = params.append('count', count);
-    params = params.append('maxlength', maxLength);
-    params = params.append('format', this.format);
-
-    //return this.http.get(this.baseUrl + this.news, {params: params});
-    return this.http.get('https://localhost:5001/API/Test');
-  }
-
-  getPlayerProfile(steamUser: string) {
-    let params = new HttpParams();
-    params = params.append('username', steamUser);
+    params = params.append('username', steamUsername);
 
     return this.http.get('https://localhost:5001/API/SteamProfile', {params: params});
+  }
+
+  getPlayerProfileFromSteamID(steamid: string) {
+    let params = new HttpParams();
+    params = params.append('steamid', steamid);
+
+    return this.http.get('https://localhost:5001/API/SteamProfile/SteamID', {params: params});
   }
 
 }

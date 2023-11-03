@@ -8,18 +8,22 @@ import { SteamidComponent } from './steamid/steamid.component';
 import { FooterComponent } from './footer/footer.component';
 
 import {HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SteamidComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

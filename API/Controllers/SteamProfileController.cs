@@ -20,7 +20,7 @@ namespace API.Controllers
             return new List<SteamProfile> { sp };
         }
 
-        [HttpGet("SteamProfileID")]
+        [HttpGet("SteamID")]
         public async Task<IEnumerable<SteamProfile>> GetSteamProfileFromSteamId(string steamid)
         {
             SteamProfile sp = new();

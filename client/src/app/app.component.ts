@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SteamService } from './services/steam.service';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +6,12 @@ import { SteamService } from './services/steam.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'BeatSteam';
-  appNews: any;
-  steamProfile: any;
+  title: string = 'BeatSteam';
+  loggedIn: boolean = false;
 
-  constructor(private steamService: SteamService) { }
+  constructor() { }
 
-  //getNewsForApp() {
   ngOnInit(): void {
-      this.steamService.getPlayerProfile('ansimi').subscribe({
-        next: response => this.steamProfile = response,
-        error: error => console.log(error),
-        complete: () => console.log(this.steamProfile)
-      });
-    }
+
   }
+}
